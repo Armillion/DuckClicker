@@ -64,6 +64,7 @@ public class clicker : MonoBehaviour
                 else if (child.gameObject.TryGetComponent<Image>(out var comp3) && child.name == "Image")
                 {
                     int index = i;
+                    Debug.Log("nigga");
                     comp3.sprite = upgrades[index].Image;
                     child.gameObject.GetComponent<Button>().onClick.AddListener(() => enterUpgrade(upgrades[index]));
                 }
@@ -97,6 +98,6 @@ public class clicker : MonoBehaviour
     //TODO: Michal ogarnie
     private void enterUpgrade(Upgrade upgrade)
     {
-
+        Debug.Log("nigga");
     }
 }
