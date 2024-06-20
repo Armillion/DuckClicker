@@ -1,52 +1,102 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class clicker : MonoBehaviour
 {
-    public int currentAmount = 0;
+    public ulong currentAmount = 0;
 
     public int perClick = 1;
-    public float perSecond = 0f;
 
-    public float clickMultiplier = 1f;
-    public float realtimeMultiplier = 1f;
-    public float allMultiplier = 1f;
+    [SerializeField] private List<Upgrade> upgrades = new List<Upgrade>();
+    [SerializeField] private List<GameObject> upgradeUI = new List<GameObject>();
 
-    public float criticalMultiplier = 2f;
-    public float criticalChance = 2f;
+    [SerializeField] private GameObject upgradePrefab;
+    [SerializeField] private GameObject upgradeSlot;
 
-    private float cnterToAdd = 0;
+    private void Awake()
+    {
+        buildUpgradeUI();
+    }
 
     public void click()
     {
-        int toAdd = (int)(perClick*allMultiplier*clickMultiplier);
-
-        if (Random.Range(0, 100) < criticalChance)
-            toAdd = (int)(toAdd*criticalMultiplier);
+        int toAdd = (int)(perClick);
     }
 
     private void Update()
     {
-        cnterToAdd += perSecond * allMultiplier * realtimeMultiplier * Time.deltaTime;
-        
-        if(cnterToAdd > 1)
+        foreach(Upgrade upgrade in upgrades)
         {
-            currentAmount += (int)cnterToAdd;
-            cnterToAdd = 0;
+            currentAmount += (ulong)(upgrade.amount * upgrade.realTiemeBonus);
         }
     }
 
-    public void applyUpgrade(Upgrade upgrade)
+    private void applyUpgrade(Upgrade upgrade)
     {
-        perClick += upgrade.perClick;
-        perSecond += upgrade.perSecond;
+        upgrade.amount++;
 
-        clickMultiplier += upgrade.clickMultiplier;
-        realtimeMultiplier += upgrade.realtimeMultiplier;
-        allMultiplier += upgrade.allMultiplier;
+        updateUpgradeUI();
+    }
 
-        criticalMultiplier += upgrade.criticalMultiplier;
-        criticalChance += upgrade.criticalChance;
+    private void buildUpgradeUI()
+    {
+        foreach(Upgrade up in upgrades)
+        {
+            var a = Instantiate(upgradePrefab, upgradeSlot.transform);
+            upgradeUI.Add(a);
+        }
+
+        for(int i = 0; i < upgrades.Count; i++ )
+        {
+            foreach(Transform child in upgradeUI[i].transform)
+            {
+                if (child.gameObject.TryGetComponent<TMPro.TextMeshProUGUI>(out var comp1) && child.name == "Level")
+                {
+                    comp1.text = upgrades[i].amount.ToString() + " lvl";
+                }
+                else if (child.gameObject.TryGetComponent<TMPro.TextMeshProUGUI>(out var comp2) && child.name == "perS")
+                {
+                    comp2.text = (upgrades[i].amount * upgrades[i].realTiemeBonus).ToString() + " /s";
+                }
+                else if (child.gameObject.TryGetComponent<Image>(out var comp3) && child.name == "Image")
+                {
+                    int index = i;
+                    comp3.sprite = upgrades[index].Image;
+                    child.gameObject.GetComponent<Button>().onClick.AddListener(() => enterUpgrade(upgrades[index]));
+                }
+                else if (child.gameObject.TryGetComponent<Button>(out var comp4) && child.name != "Image")
+                {
+                    int index = i;
+                    comp4.onClick.AddListener(() => applyUpgrade(upgrades[index]));
+                }
+            }
+        }
+    }
+
+    private void updateUpgradeUI()
+    {
+        for (int i = 0; i < upgrades.Count; i++)
+        {
+            foreach (Transform child in upgradeUI[i].transform)
+            {
+                if (child.gameObject.TryGetComponent<TMPro.TextMeshProUGUI>(out var comp1) && child.name == "Level")
+                {
+                    comp1.text = upgrades[i].amount.ToString() + " lvl";
+                }
+                else if (child.gameObject.TryGetComponent<TMPro.TextMeshProUGUI>(out var comp2) && child.name == "perS")
+                {
+                    comp2.text = (upgrades[i].amount * upgrades[i].realTiemeBonus).ToString() + " /s";
+                }
+            }
+        }
+    }
+
+    //TODO: Michal ogarnie
+    private void enterUpgrade(Upgrade upgrade)
+    {
+
     }
 }
