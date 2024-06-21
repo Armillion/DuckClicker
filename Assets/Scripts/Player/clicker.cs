@@ -1,11 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class clicker : MonoBehaviour
 {
+    public class UpgradeButton
+    {
+        public string lvl;
+        public string perS;
+        public Image image;
+        public Button button;
+    }
+
     public ulong currentAmount = 0;
 
     public int perClick = 1;
@@ -13,8 +22,10 @@ public class clicker : MonoBehaviour
     [SerializeField] private List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] private List<GameObject> upgradeUI = new List<GameObject>();
 
+    //UI
     [SerializeField] private GameObject upgradePrefab;
     [SerializeField] private GameObject upgradeSlot;
+    [SerializeField] private TMPro.TextMeshProUGUI Resource;
 
     private void Awake()
     {
@@ -28,6 +39,8 @@ public class clicker : MonoBehaviour
 
     private void Update()
     {
+        Resource.text = currentAmount.ToString();
+
         foreach(Upgrade upgrade in upgrades)
         {
             currentAmount += (ulong)(upgrade.amount * upgrade.realTiemeBonus);
@@ -49,31 +62,16 @@ public class clicker : MonoBehaviour
             upgradeUI.Add(a);
         }
 
-        for(int i = 0; i < upgrades.Count; i++ )
+        updateUpgradeUI();
+
+        for (int i = 0; i < upgrades.Count; i++)
         {
-            foreach(Transform child in upgradeUI[i].transform)
-            {
-                if (child.gameObject.TryGetComponent<TMPro.TextMeshProUGUI>(out var comp1) && child.name == "Level")
-                {
-                    comp1.text = upgrades[i].amount.ToString() + " lvl";
-                }
-                else if (child.gameObject.TryGetComponent<TMPro.TextMeshProUGUI>(out var comp2) && child.name == "perS")
-                {
-                    comp2.text = (upgrades[i].amount * upgrades[i].realTiemeBonus).ToString() + " /s";
-                }
-                else if (child.gameObject.TryGetComponent<Image>(out var comp3) && child.name == "Image")
-                {
-                    int index = i;
-                    Debug.Log("nigga");
-                    comp3.sprite = upgrades[index].Image;
-                    child.gameObject.GetComponent<Button>().onClick.AddListener(() => enterUpgrade(upgrades[index]));
-                }
-                else if (child.gameObject.TryGetComponent<Button>(out var comp4) && child.name != "Image")
-                {
-                    int index = i;
-                    comp4.onClick.AddListener(() => applyUpgrade(upgrades[index]));
-                }
-            }
+            int index = i;
+            var ui = upgradeUI[index].GetComponent<UpgradeUI>();
+
+            ui.enterButton.onClick.AddListener(() => enterUpgrade(upgrades[index]));
+
+            ui.applyButton.onClick.AddListener(() => applyUpgrade(upgrades[index]));
         }
     }
 
@@ -81,23 +79,19 @@ public class clicker : MonoBehaviour
     {
         for (int i = 0; i < upgrades.Count; i++)
         {
-            foreach (Transform child in upgradeUI[i].transform)
-            {
-                if (child.gameObject.TryGetComponent<TMPro.TextMeshProUGUI>(out var comp1) && child.name == "Level")
-                {
-                    comp1.text = upgrades[i].amount.ToString() + " lvl";
-                }
-                else if (child.gameObject.TryGetComponent<TMPro.TextMeshProUGUI>(out var comp2) && child.name == "perS")
-                {
-                    comp2.text = (upgrades[i].amount * upgrades[i].realTiemeBonus).ToString() + " /s";
-                }
-            }
+            int index = i;
+            var ui = upgradeUI[index].GetComponent<UpgradeUI>();
+
+            ui.sprite.sprite = upgrades[index].Image;
+            
+            ui.lvl.text = upgrades[index].amount.ToString();
+            ui.perS.text = (upgrades[index].realTiemeBonus * upgrades[i].amount).ToString();
         }
     }
 
     //TODO: Michal ogarnie
     private void enterUpgrade(Upgrade upgrade)
     {
-        Debug.Log("nigga");
+        
     }
 }
