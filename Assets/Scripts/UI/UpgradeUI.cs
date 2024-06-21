@@ -7,6 +7,7 @@ public class UpgradeUI : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI lvl;
     public TMPro.TextMeshProUGUI perS;
+    public TMPro.TextMeshProUGUI cost;
 
     public Image sprite;
     public Button enterButton;

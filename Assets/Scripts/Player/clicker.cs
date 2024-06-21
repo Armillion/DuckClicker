@@ -27,6 +27,10 @@ public class clicker : MonoBehaviour
     [SerializeField] private GameObject upgradeSlot;
     [SerializeField] private TMPro.TextMeshProUGUI Resource;
 
+    //Animators
+    [SerializeField] private Animator inventoryAnimator;
+    [SerializeField] private Animator upgradesAnimator;
+
     private void Awake()
     {
         buildUpgradeUI();
@@ -34,7 +38,7 @@ public class clicker : MonoBehaviour
 
     public void click()
     {
-        int toAdd = (int)(perClick);
+        currentAmount += (ulong)(perClick);
     }
 
     private void Update()
@@ -49,7 +53,12 @@ public class clicker : MonoBehaviour
 
     private void applyUpgrade(Upgrade upgrade)
     {
-        upgrade.amount++;
+        if (upgrade.unlocked && currentAmount >= (ulong)upgrade.cost)
+        {
+            upgrade.amount++;
+            currentAmount -= (ulong)upgrade.cost;
+            upgrade.cost *= -2;
+        }
 
         updateUpgradeUI();
     }
@@ -86,6 +95,9 @@ public class clicker : MonoBehaviour
             
             ui.lvl.text = upgrades[index].amount.ToString();
             ui.perS.text = (upgrades[index].realTiemeBonus * upgrades[i].amount).ToString();
+            ui.cost.text = upgrades[index].cost.ToString();
+
+            upgradeUI[index].SetActive(upgrades[index].unlocked); 
         }
     }
 
@@ -93,5 +105,25 @@ public class clicker : MonoBehaviour
     private void enterUpgrade(Upgrade upgrade)
     {
         
+    }
+
+    public void openInventory()
+    {
+        inventoryAnimator.SetTrigger("Open");
+    }
+
+    public void closeInventory()
+    {
+        inventoryAnimator.SetTrigger("Close");
+    }
+
+    public void openUpgrades()
+    {
+        upgradesAnimator.SetTrigger("Open");
+    }
+
+    public void closeUpgrades()
+    {
+        upgradesAnimator.SetTrigger("Close");
     }
 }

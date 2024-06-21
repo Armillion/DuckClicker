@@ -8,6 +8,8 @@ public class Upgrade : ScriptableObject
     public float realTiemeBonus = 0;
 
     public int amount = 0;
+    public int cost = 0;
+    public bool unlocked = false;
 
     public Sprite Image;
 }
