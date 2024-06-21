@@ -18,6 +18,7 @@ public class clicker : MonoBehaviour
     public ulong currentAmount = 0;
 
     public int perClick = 1;
+    int toAdd = 0;
 
     [SerializeField] private List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] private List<GameObject> upgradeUI = new List<GameObject>();
@@ -47,7 +48,13 @@ public class clicker : MonoBehaviour
 
         foreach(Upgrade upgrade in upgrades)
         {
-            currentAmount += (ulong)(upgrade.amount * upgrade.realTiemeBonus);
+            toAdd += (int)(upgrade.amount * upgrade.realTiemeBonus);
+        }
+
+        if (toAdd * Time.deltaTime > 1f)
+        {
+            currentAmount += (ulong)(toAdd*Time.deltaTime);
+            toAdd = 0;
         }
     }
 
@@ -57,7 +64,7 @@ public class clicker : MonoBehaviour
         {
             upgrade.amount++;
             currentAmount -= (ulong)upgrade.cost;
-            upgrade.cost *= -2;
+            upgrade.cost *= 2;
         }
 
         updateUpgradeUI();
@@ -93,8 +100,8 @@ public class clicker : MonoBehaviour
 
             ui.sprite.sprite = upgrades[index].Image;
             
-            ui.lvl.text = upgrades[index].amount.ToString();
-            ui.perS.text = (upgrades[index].realTiemeBonus * upgrades[i].amount).ToString();
+            ui.lvl.text = upgrades[index].amount.ToString() + " lvl";
+            ui.perS.text = (upgrades[index].realTiemeBonus * upgrades[i].amount).ToString() + " /s";
             ui.cost.text = upgrades[index].cost.ToString();
 
             upgradeUI[index].SetActive(upgrades[index].unlocked); 

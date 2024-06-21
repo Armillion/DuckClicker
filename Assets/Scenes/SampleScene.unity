@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 139090380}
   - component: {fileID: 139090379}
   m_Layer: 5
-  m_Name: InventoryButton
+  m_Name: SkinButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,8 +495,6 @@ MonoBehaviour:
   currentAmount: 0
   perClick: 1
   upgrades:
-  - {fileID: 11400000, guid: f96442f0f790bcf4a90428e81724974a, type: 2}
-  - {fileID: 11400000, guid: f96442f0f790bcf4a90428e81724974a, type: 2}
   - {fileID: 11400000, guid: f96442f0f790bcf4a90428e81724974a, type: 2}
   upgradeUI: []
   upgradePrefab: {fileID: 5488501986863867880, guid: 3f75b0cfe404b2746b5eb4325c3c24eb, type: 3}
@@ -805,7 +803,7 @@ GameObject:
   - component: {fileID: 1088655077}
   - component: {fileID: 1088655076}
   m_Layer: 5
-  m_Name: SocialButton
+  m_Name: InventoryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
