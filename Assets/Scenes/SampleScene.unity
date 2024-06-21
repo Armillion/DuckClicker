@@ -501,6 +501,9 @@ MonoBehaviour:
   upgradeUI: []
   upgradePrefab: {fileID: 5488501986863867880, guid: 3f75b0cfe404b2746b5eb4325c3c24eb, type: 3}
   upgradeSlot: {fileID: 1892043806}
+  Resource: {fileID: 1876374674}
+  inventoryAnimator: {fileID: 935553538}
+  upgradesAnimator: {fileID: 1892043811}
 --- !u!1 &935553531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5561464218640025373, guid: 61f17a18bac213c498869152c03f7c35, type: 3}
@@ -529,6 +532,27 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4047369989352008966, guid: 61f17a18bac213c498869152c03f7c35, type: 3}
   m_PrefabInstance: {fileID: 1045832396}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &935553538
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935553531}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a299fa1279ebfb4cb8f7a0ebb78582c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1045832396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -651,11 +675,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4047369989352008966, guid: 61f17a18bac213c498869152c03f7c35, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 497
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4047369989352008966, guid: 61f17a18bac213c498869152c03f7c35, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -1706
       objectReference: {fileID: 0}
     - target: {fileID: 4047369989352008966, guid: 61f17a18bac213c498869152c03f7c35, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -688,6 +712,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5561464218640025373, guid: 61f17a18bac213c498869152c03f7c35, type: 3}
       insertIndex: -1
       addedObject: {fileID: 935553532}
+    - targetCorrespondingSourceObject: {fileID: 5561464218640025373, guid: 61f17a18bac213c498869152c03f7c35, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 935553538}
   m_SourcePrefab: {fileID: 100100000, guid: 61f17a18bac213c498869152c03f7c35, type: 3}
 --- !u!1 &1080272589
 GameObject:
@@ -846,7 +873,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1088655077}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420033}
+        m_TargetAssemblyTypeName: clicker, Assembly-CSharp
+        m_MethodName: openInventory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1088655077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,7 +1005,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1273487743}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420033}
+        m_TargetAssemblyTypeName: clicker, Assembly-CSharp
+        m_MethodName: click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1273487743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,7 +1175,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1310053215}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420033}
+        m_TargetAssemblyTypeName: clicker, Assembly-CSharp
+        m_MethodName: openUpgrades
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1310053215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,6 +1372,7 @@ GameObject:
   - component: {fileID: 1892043810}
   - component: {fileID: 1892043809}
   - component: {fileID: 1892043808}
+  - component: {fileID: 1892043811}
   m_Layer: 5
   m_Name: Upgrades
   m_TagString: Untagged
@@ -1332,7 +1396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2, y: 0}
+  m_AnchoredPosition: {x: 2, y: -822}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1892043808
@@ -1399,6 +1463,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892043806}
   m_CullTransparentMesh: 1
+--- !u!95 &1892043811
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892043806}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a299fa1279ebfb4cb8f7a0ebb78582c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2109855392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6720399858142457750, guid: 61f17a18bac213c498869152c03f7c35, type: 3}
@@ -1499,10 +1584,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1273487741}
+  - {fileID: 1307669826}
   - {fileID: 1892043807}
   - {fileID: 935553535}
   - {fileID: 1080272590}
-  - {fileID: 1307669826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
