@@ -10,6 +10,7 @@ public class Upgrade : ScriptableObject
     public int amount = 0;
     public int cost = 0;
     public bool unlocked = false;
+    public Room room;
 
     public Sprite Image;
 }

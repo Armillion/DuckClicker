@@ -22,9 +22,16 @@ public class clicker : MonoBehaviour
 
     [SerializeField] private List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] private List<GameObject> upgradeUI = new List<GameObject>();
+    [SerializeField] private Equipment equipment;
+    [SerializeField] private GameObject currentRoom;
 
     //UI
     [SerializeField] private GameObject upgradePrefab;
+    [SerializeField] private GameObject roomPrefab;
+    [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private GameObject puzzlePrefab;
+
+
     [SerializeField] private GameObject upgradeSlot;
     [SerializeField] private TMPro.TextMeshProUGUI Resource;
 
@@ -108,10 +115,37 @@ public class clicker : MonoBehaviour
         }
     }
 
-    //TODO: Michal ogarnie
+
     private void enterUpgrade(Upgrade upgrade)
     {
-        
+        upgradesAnimator.SetTrigger("Close");
+        var room = Instantiate(roomPrefab);
+        if (room == null) 
+        {
+            currentRoom = room;
+        }
+        // trigger animacji pokoju
+        for (int i = 0; i < upgrade.room.items.Count; i++)
+        {
+            var current = i;
+            var a = Instantiate(itemPrefab, upgrade.room.items[i].coords, Quaternion.identity, room.transform);
+            var itemek = a.GetComponent<ItemUI>();
+            itemek.button.onClick.AddListener(() => pickUpItem(upgrade.room.items[current], upgrade.room, a));
+        }
+
+        for (int i = 0; i < upgrade.room.items.Count; i++)
+        {
+            Instantiate(puzzlePrefab, upgrade.room.items[i].coords, Quaternion.identity, room.transform);
+        }
+    }
+
+    private void exitUpgrade()
+    {
+        if (currentRoom != null)
+        {
+            Destroy(currentRoom);
+        }
+        //animacja zamkniecia pokoju
     }
 
     public void openInventory()
@@ -129,8 +163,18 @@ public class clicker : MonoBehaviour
         upgradesAnimator.SetTrigger("Open");
     }
 
+
     public void closeUpgrades()
     {
         upgradesAnimator.SetTrigger("Close");
+    }
+
+    public void pickUpItem(Item item, Room room, GameObject itemek)
+    {
+        equipment.items.Add(item);
+        room.items.Remove(item);
+        itemek.GetComponent<Button>().onClick.RemoveAllListeners();
+        Destroy(itemek);
+        equipment.updateInventory();
     }
 }
