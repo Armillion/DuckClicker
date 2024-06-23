@@ -42,8 +42,19 @@ public class clicker : MonoBehaviour
     [SerializeField] private Animator upgradesAnimator;
     public RoomUI roomUI;
 
+    private clicker _instance;
+
     private void Awake()
     {
+        if(_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
         buildUpgradeUI();
     }
 
@@ -129,7 +140,6 @@ public class clicker : MonoBehaviour
         currentRoom = room;
         roomUI = room.GetComponent<RoomUI>();
         Debug.Log(roomUI);
-        roomUI.image = room.GetComponent<Image>();
         roomUI.image.sprite = upgrade.room.Image;
 
         // trigger animacji pokoju
@@ -186,6 +196,12 @@ public class clicker : MonoBehaviour
         room.items.Remove(item);
         itemek.GetComponent<Button>().onClick.RemoveAllListeners();
         Destroy(itemek);
-        equipment.updateInventory();
+    }
+
+    public void solvePuzzle(Puzzle puzzle)
+    {
+        puzzle.solved = true;
+        puzzle.upgrade.unlocked = true;
+        updateUpgradeUI();
     }
 }

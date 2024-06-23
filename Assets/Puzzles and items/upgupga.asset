@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbc46fb7dd46354c89e9f18fcbfbad3, type: 3}
-  m_Name: Room
+  m_Script: {fileID: 11500000, guid: 2f82495800b886048ab107da1598ac48, type: 3}
+  m_Name: upgupga
   m_EditorClassIdentifier: 
-  puzzles: []
-  items:
-  - {fileID: 11400000, guid: 4464821b7ecd06b41a8f8d5d2e76d9ed, type: 2}
+  realTiemeBonus: 2
+  amount: 0
+  cost: 60
+  unlocked: 0
+  room: {fileID: 0}
   Image: {fileID: 21300000, guid: c936035e9c1e9ee4d91293c825d28101, type: 3}

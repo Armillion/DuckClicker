@@ -32,28 +32,19 @@ public class Equipment : MonoBehaviour
     {
         for(int i = 0; i < backpackSize; i++)
         {
+            var a = prefabs[i].GetComponent<ItemslotUI>();
             if (items[i] != null)
             {
-                prefabs[i].GetComponent<Image>().sprite = items[i].sprite;
-                prefabs[i].GetComponent<Image>().raycastTarget = true;
-                int j = i;
-                prefabs[i].GetComponent<Button>().onClick.RemoveAllListeners();
-                prefabs[i].GetComponent<Button>().onClick.AddListener(() => onClick(j));
+                a.sprite.sprite = items[i].sprite;
+                a.sprite.raycastTarget = true;
             }
             else
             {
-                prefabs[i].GetComponent<Button>().onClick.RemoveAllListeners();
-                prefabs[i].GetComponent<Image>().sprite = null;
-                prefabs[i].GetComponent<Image>().raycastTarget = false;
+                a.sprite.sprite = null;
+                a.sprite.raycastTarget = false;
             }
         }
     }
-
-    public void onClick(int id)
-    {
-        
-    }
-
 
     private void Update()
     {
