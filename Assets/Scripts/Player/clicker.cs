@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,15 +30,17 @@ public class clicker : MonoBehaviour
     [SerializeField] private GameObject upgradePrefab;
     [SerializeField] private GameObject roomPrefab;
     [SerializeField] private GameObject itemPrefab;
-    [SerializeField] private GameObject puzzlePrefab;
+    //[SerializeField] private GameObject puzzlePrefab;
 
 
     [SerializeField] private GameObject upgradeSlot;
     [SerializeField] private TMPro.TextMeshProUGUI Resource;
+    [SerializeField] private Transform roomParent;
 
     //Animators
     [SerializeField] private Animator inventoryAnimator;
     [SerializeField] private Animator upgradesAnimator;
+    public RoomUI roomUI;
 
     private void Awake()
     {
@@ -92,6 +95,8 @@ public class clicker : MonoBehaviour
             int index = i;
             var ui = upgradeUI[index].GetComponent<UpgradeUI>();
 
+            ui.room = upgrades[index].room;
+
             ui.enterButton.onClick.AddListener(() => enterUpgrade(upgrades[index]));
 
             ui.applyButton.onClick.AddListener(() => applyUpgrade(upgrades[index]));
@@ -119,23 +124,28 @@ public class clicker : MonoBehaviour
     private void enterUpgrade(Upgrade upgrade)
     {
         upgradesAnimator.SetTrigger("Close");
-        var room = Instantiate(roomPrefab);
-        if (room == null) 
-        {
-            currentRoom = room;
-        }
+        var room = Instantiate(roomPrefab, roomParent);
+        Debug.Log(room);
+        currentRoom = room;
+        roomUI = room.GetComponent<RoomUI>();
+        Debug.Log(roomUI);
+        roomUI.image = room.GetComponent<Image>();
+        roomUI.image.sprite = upgrade.room.Image;
+
         // trigger animacji pokoju
         for (int i = 0; i < upgrade.room.items.Count; i++)
         {
             var current = i;
-            var a = Instantiate(itemPrefab, upgrade.room.items[i].coords, Quaternion.identity, room.transform);
+            var a = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity, room.transform);
+            a.GetComponent<RectTransform>().anchoredPosition = new Vector2(Screen.width * upgrade.room.items[current].coords.x, Screen.height * upgrade.room.items[current].coords.y);
             var itemek = a.GetComponent<ItemUI>();
+            itemek.image.sprite = upgrade.room.items[current].sprite;
             itemek.button.onClick.AddListener(() => pickUpItem(upgrade.room.items[current], upgrade.room, a));
         }
 
         for (int i = 0; i < upgrade.room.items.Count; i++)
         {
-            Instantiate(puzzlePrefab, upgrade.room.items[i].coords, Quaternion.identity, room.transform);
+            //Instantiate(puzzlePrefab, upgrade.room.items[i].coords, Quaternion.identity, room.transform);
         }
     }
 
@@ -145,6 +155,7 @@ public class clicker : MonoBehaviour
         {
             Destroy(currentRoom);
         }
+        currentRoom = null;
         //animacja zamkniecia pokoju
     }
 

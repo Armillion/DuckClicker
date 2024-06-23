@@ -604,6 +604,7 @@ MonoBehaviour:
   lvl: {fileID: 1532150286567752122}
   perS: {fileID: 554638078766049579}
   cost: {fileID: 399547074452433401}
+  room: {fileID: 0}
   sprite: {fileID: 5818005206909889624}
   enterButton: {fileID: 7198227229013859891}
   applyButton: {fileID: 7268985388719656083}

@@ -7,4 +7,5 @@ public class ItemUI : MonoBehaviour
 {
     public Image image;
     public Button button;
+    public Vector2 coords;
 }

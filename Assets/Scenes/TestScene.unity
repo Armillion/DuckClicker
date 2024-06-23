@@ -500,9 +500,8 @@ MonoBehaviour:
   equipment: {fileID: 935553532}
   currentRoom: {fileID: 0}
   upgradePrefab: {fileID: 5488501986863867880, guid: 3f75b0cfe404b2746b5eb4325c3c24eb, type: 3}
-  roomPrefab: {fileID: 0}
-  itemPrefab: {fileID: 0}
-  puzzlePrefab: {fileID: 0}
+  roomPrefab: {fileID: 5488501986863867880, guid: 089bbbdaf94d8e949af061b145a394a8, type: 3}
+  itemPrefab: {fileID: 5488501986863867880, guid: 21b2591223e33ca4bb4d50700da2328b, type: 3}
   upgradeSlot: {fileID: 1892043806}
   Resource: {fileID: 1876374674}
   inventoryAnimator: {fileID: 935553538}
