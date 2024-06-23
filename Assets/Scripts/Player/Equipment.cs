@@ -35,6 +35,7 @@ public class Equipment : MonoBehaviour
             if (items[i] != null)
             {
                 prefabs[i].GetComponent<Image>().sprite = items[i].sprite;
+                prefabs[i].GetComponent<Image>().raycastTarget = true;
                 int j = i;
                 prefabs[i].GetComponent<Button>().onClick.RemoveAllListeners();
                 prefabs[i].GetComponent<Button>().onClick.AddListener(() => onClick(j));
@@ -43,6 +44,7 @@ public class Equipment : MonoBehaviour
             {
                 prefabs[i].GetComponent<Button>().onClick.RemoveAllListeners();
                 prefabs[i].GetComponent<Image>().sprite = null;
+                prefabs[i].GetComponent<Image>().raycastTarget = false;
             }
         }
     }

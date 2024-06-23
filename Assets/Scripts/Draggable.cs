@@ -21,6 +21,7 @@ public class Draggable : MonoBehaviour
     public void stop()
     {
         transform.position = pos;
-        transform.parent = parent;
+        transform.SetParent(parent,false);
+        transform.SetSiblingIndex(0);
     }
 }

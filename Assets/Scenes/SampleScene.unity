@@ -311,6 +311,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139090377}
   m_CullTransparentMesh: 1
+--- !u!1 &232428251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 232428252}
+  m_Layer: 5
+  m_Name: DraggingObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &232428252
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232428251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2146307253}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &288978563
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -498,11 +533,17 @@ MonoBehaviour:
   upgrades:
   - {fileID: 11400000, guid: f96442f0f790bcf4a90428e81724974a, type: 2}
   upgradeUI: []
+  equipment: {fileID: 0}
+  currentRoom: {fileID: 0}
   upgradePrefab: {fileID: 5488501986863867880, guid: 3f75b0cfe404b2746b5eb4325c3c24eb, type: 3}
+  roomPrefab: {fileID: 0}
+  itemPrefab: {fileID: 0}
   upgradeSlot: {fileID: 1892043806}
   Resource: {fileID: 1876374674}
+  roomParent: {fileID: 0}
   inventoryAnimator: {fileID: 935553538}
   upgradesAnimator: {fileID: 1892043811}
+  roomUI: {fileID: 0}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac357942b471a25449639e5f89871279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Raycaster: {fileID: 2146307250}
+  m_EventSystem: {fileID: 47256194}
+  draggingParent: {fileID: 232428252}
 --- !u!1 &935553531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5561464218640025373, guid: 61f17a18bac213c498869152c03f7c35, type: 3}
@@ -532,7 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798ebf0b95e57ee4697501b88a03c527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - {fileID: 0}
   backpackSize: 24
   itemCnt: 0
   itemSlotPrefab: {fileID: 3419403206408173164, guid: e14f81a8ed127e74795b28dcda0c648f, type: 3}
@@ -779,7 +824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.4264151, g: 0.4264151, b: 0.4264151, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1450,7 +1495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1599,6 +1644,7 @@ RectTransform:
   - {fileID: 1892043807}
   - {fileID: 935553535}
   - {fileID: 1080272590}
+  - {fileID: 232428252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

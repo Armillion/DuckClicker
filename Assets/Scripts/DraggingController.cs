@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DraggingController : MonoBehaviour
 {
     private bool isDragging = false;
 
     private Vector2 screenPos;
-    private Vector3 worldPos;
         
     private Draggable lastDragged;
+
+    //for ui raycasting
+    [SerializeField] private GraphicRaycaster m_Raycaster;
+    private PointerEventData m_PointerEventData;
+    [SerializeField] private EventSystem m_EventSystem;
+    [SerializeField] private Transform draggingParent;
 
     private void Awake()
     {
@@ -40,24 +47,28 @@ public class DraggingController : MonoBehaviour
             return;
         }
 
-        worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-
         if(isDragging)
         {
             Drag();
         }
         else
         {
-            RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.zero);
-            
-            if(hit.collider != null)
+            m_PointerEventData = new PointerEventData(m_EventSystem);
+            m_PointerEventData.position = Input.mousePosition;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+
+            m_Raycaster.Raycast(m_PointerEventData, results);
+
+            foreach (RaycastResult result in results)
             {
-                Debug.Log(hit.transform.gameObject.name);
-                Draggable draggable = hit.transform.gameObject.GetComponent<Draggable>();
-                if(draggable != null)
+                Draggable draggable = result.gameObject.GetComponent<Draggable>();
+                if (draggable != null)
                 {
+                    Debug.Log("Hit " + result.gameObject.name);
                     lastDragged = draggable;
-                    hit.transform.parent = null;
+                    result.gameObject.transform.SetParent(draggingParent,false);
+                    
                     initDrag();
                 }
             }
@@ -71,7 +82,7 @@ public class DraggingController : MonoBehaviour
 
     private void Drag()
     {
-        lastDragged.transform.position = new Vector2(worldPos.z, worldPos.y);
+        lastDragged.transform.position = screenPos;
     }
 
     private void drop()
