@@ -14,15 +14,27 @@ public class Draggable : MonoBehaviour
         pos = transform.localPosition;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnEnable()
+    {
+        UICollisionMenager.onCollision += attemptToSolve;
+    }
+
+    private void OnDisable()
+    {
+        UICollisionMenager.onCollision -= attemptToSolve;
+    }
+
+    private void attemptToSolve(object sender, GameObject collider)
     {
         //Chceck if collision is with puzzle and act appropiatly
-        var puzzle = collision.GetComponent<PuzzleUI>();
+        var puzzle = collider.GetComponent<PuzzleUI>();
         if (puzzle != null) 
         {
+            Debug.Log("moc nigas");
             if(password == puzzle.puzzle.password)
             {
-                GameObject.FindObjectOfType<clicker>().solvePuzzle(puzzle.puzzle);
+                clicker._instance.solvePuzzle(puzzle.puzzle);
+                puzzle.updateImage();
                 Destroy(gameObject);
             }
         }

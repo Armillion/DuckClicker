@@ -32,15 +32,21 @@ public class Equipment : MonoBehaviour
     {
         for(int i = 0; i < backpackSize; i++)
         {
+            if (!prefabs[i])
+                continue;
+
             var a = prefabs[i].GetComponent<ItemslotUI>();
+
             if (items[i] != null)
             {
                 a.sprite.sprite = items[i].sprite;
                 a.sprite.raycastTarget = true;
+                a.draggable.password = items[i].password;
             }
             else
             {
                 a.sprite.sprite = null;
+                a.draggable.password = "";  
                 a.sprite.raycastTarget = false;
             }
         }

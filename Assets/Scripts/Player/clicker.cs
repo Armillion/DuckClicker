@@ -42,7 +42,7 @@ public class clicker : MonoBehaviour
     [SerializeField] private Animator upgradesAnimator;
     public RoomUI roomUI;
 
-    private clicker _instance;
+    public static clicker _instance;
 
     private void Awake()
     {

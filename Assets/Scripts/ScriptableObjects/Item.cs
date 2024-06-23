@@ -8,7 +8,6 @@ public class Item : ScriptableObject
     public Sprite sprite;
     public Vector2 coords;
 
-    [TextArea]
     //If passwords of item and puzzle match the puzzle is solved
     public string password;
 }

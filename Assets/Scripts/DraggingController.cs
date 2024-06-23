@@ -65,7 +65,6 @@ public class DraggingController : MonoBehaviour
                 Draggable draggable = result.gameObject.GetComponent<Draggable>();
                 if (draggable != null)
                 {
-                    Debug.Log("Hit " + result.gameObject.name);
                     lastDragged = draggable;
                     result.gameObject.transform.SetParent(draggingParent,false);
                     
@@ -82,12 +81,15 @@ public class DraggingController : MonoBehaviour
 
     private void Drag()
     {
-        lastDragged.transform.position = screenPos;
+        if(lastDragged)
+            lastDragged.transform.position = screenPos;
     }
 
     private void drop()
     {
         isDragging = false;
-        lastDragged.stop();
+
+        if(lastDragged)
+            lastDragged.stop();
     }
 }
