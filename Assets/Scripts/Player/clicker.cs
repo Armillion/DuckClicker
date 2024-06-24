@@ -298,8 +298,17 @@ public class clicker : MonoBehaviour
         leaderboardScreen.SetActive(!leaderboardScreen.activeInHierarchy);
     }
 
-    public void settingsActive()
+
+    public void mainMenuButton()
     {
-        settingsScreen.SetActive(!settingsScreen.activeInHierarchy);
+        if (currentRoom != null)
+        {
+            Destroy(currentRoom);
+        }
+        currentRoom = null;
+        endingScreen.SetActive(false);
+        leaderboardScreen.SetActive(false);
+        closeUpgrades();
+        closeInventory();
     }
 }
