@@ -25,8 +25,9 @@ public class clicker : MonoBehaviour
     [SerializeField] private List<GameObject> upgradeUI = new List<GameObject>();
     [SerializeField] private List<Ending> endings = new List<Ending>();
     [SerializeField] private List<GameObject> endingUI = new List<GameObject>();
-    [SerializeField] private List<Ending> entries = new List<Ending>();
+    [SerializeField] private List<Entry> entries = new List<Entry>();
     [SerializeField] private List<GameObject> entryUI = new List<GameObject>();
+
     [SerializeField] private Equipment equipment;
     [SerializeField] private GameObject currentRoom;
 
@@ -35,6 +36,7 @@ public class clicker : MonoBehaviour
     [SerializeField] private GameObject roomPrefab;
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private GameObject endingPrefab;
+    [SerializeField] private GameObject entryPrefab;
     //[SerializeField] private GameObject puzzlePrefab;
 
 
@@ -66,6 +68,7 @@ public class clicker : MonoBehaviour
 
         buildUpgradeUI();
         buildEndingUI();
+        buildLeaderboardUI();
     }
 
     public void click()
@@ -176,8 +179,43 @@ public class clicker : MonoBehaviour
         }
     }
 
+    private void buildLeaderboardUI()
+    {
+        foreach (Entry up in entries)
+        {
+            var a = Instantiate(entryPrefab, leaderboardScreen.transform);
+            entryUI.Add(a);
+        }
 
-    private void enterUpgrade(Upgrade upgrade)
+        updateLeaderboardUI();
+
+        for (int i = 0; i < entries.Count; i++)
+        {
+            int index = i;
+            var ui = entryUI[index].GetComponent<EntryUI>();
+
+            ui.name.text = entries[index].name;
+            ui.score.text = entries[index].score.ToString();
+           
+        }
+
+    }
+
+    private void updateLeaderboardUI()
+    {
+        for (int i = 0; i < entries.Count; i++)
+        {
+            int index = i;
+            var ui = entryUI[index].GetComponent<EntryUI>();
+
+            ui.name.text = entries[index].name;
+            ui.score.text = entries[index].score.ToString();
+
+        }
+    }
+
+
+        private void enterUpgrade(Upgrade upgrade)
     {
         upgradesAnimator.SetTrigger("Close");
         var room = Instantiate(roomPrefab, roomParent);
