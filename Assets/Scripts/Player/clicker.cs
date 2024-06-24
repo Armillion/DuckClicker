@@ -23,6 +23,8 @@ public class clicker : MonoBehaviour
 
     [SerializeField] private List<Upgrade> upgrades = new List<Upgrade>();
     [SerializeField] private List<GameObject> upgradeUI = new List<GameObject>();
+    [SerializeField] private List<Ending> endings = new List<Ending>();
+    [SerializeField] private List<GameObject> endingUI = new List<GameObject>();
     [SerializeField] private Equipment equipment;
     [SerializeField] private GameObject currentRoom;
 
@@ -30,12 +32,15 @@ public class clicker : MonoBehaviour
     [SerializeField] private GameObject upgradePrefab;
     [SerializeField] private GameObject roomPrefab;
     [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private GameObject endingPrefab;
     //[SerializeField] private GameObject puzzlePrefab;
 
 
     [SerializeField] private GameObject upgradeSlot;
+    [SerializeField] private GameObject endingSlot;
     [SerializeField] private TMPro.TextMeshProUGUI Resource;
     [SerializeField] private Transform roomParent;
+    [SerializeField] private GameObject endingScreen;
 
     //Animators
     [SerializeField] private Animator inventoryAnimator;
@@ -56,6 +61,7 @@ public class clicker : MonoBehaviour
         }
 
         buildUpgradeUI();
+        buildEndingUI();
     }
 
     public void click()
@@ -89,6 +95,39 @@ public class clicker : MonoBehaviour
         }
 
         updateUpgradeUI();
+    }
+
+    private void buildEndingUI()
+    {
+        foreach (Ending end in endings)
+        {
+            var a = Instantiate(endingPrefab, endingSlot.transform);
+            endingUI.Add(a);
+        }
+
+        updateEndingUI();
+
+        for (int i = 0; i < endings.Count; i++)
+        {
+            int index = i;
+            var ui = upgradeUI[index].GetComponent<EndingUI>();
+
+            ui.flavorText.text = endings[index].flavorText;
+
+            ui.image.sprite = endings[index].image;
+        }
+    }
+
+    private void updateEndingUI()
+    {
+        for (int i = 0; i < endings.Count; i++)
+        {
+            int index = i;
+            var ui = endingUI[index].GetComponent<EndingUI>();
+
+            ui.image.sprite = endings[index].image;
+            ui.flavorText.text = endings[index].flavorText;
+        }
     }
 
     private void buildUpgradeUI()
@@ -203,5 +242,10 @@ public class clicker : MonoBehaviour
         puzzle.solved = true;
         puzzle.upgrade.unlocked = true;
         updateUpgradeUI();
+    }
+
+    public void endingActive()
+    {
+        endingScreen.SetActive(!endingScreen.activeInHierarchy);
     }
 }
