@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ExampleEnding
   m_EditorClassIdentifier: 
   unlocked: 0
-  ending: {fileID: 0}
+  ending: {fileID: 11400000, guid: f96442f0f790bcf4a90428e81724974a, type: 2}
   flavorText: Well, that was unexpected?
   image: {fileID: 21300000, guid: c936035e9c1e9ee4d91293c825d28101, type: 3}
