@@ -487,6 +487,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 954272656422102002, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 954272656422102002, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010714508683869848, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50.000183
+      objectReference: {fileID: 0}
     - target: {fileID: 2250987193718825643, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -522,6 +534,18 @@ PrefabInstance:
     - target: {fileID: 4319093963118378660, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183843928050290098, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_CellSize.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183843928050290098, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_CellSize.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183843928050290098, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_ConstraintCount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6542331605898345438, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

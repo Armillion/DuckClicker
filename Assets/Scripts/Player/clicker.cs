@@ -222,7 +222,7 @@ public class clicker : MonoBehaviour
     {
         foreach (Skin s in skins)
         {
-            var a = Instantiate(skinPrefab, leaderboardScreen.transform);
+            var a = Instantiate(skinPrefab, skinScreen.transform);
             skinUI.Add(a);
         }
 
