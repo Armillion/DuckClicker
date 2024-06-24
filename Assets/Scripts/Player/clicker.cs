@@ -25,6 +25,8 @@ public class clicker : MonoBehaviour
     [SerializeField] private List<GameObject> upgradeUI = new List<GameObject>();
     [SerializeField] private List<Ending> endings = new List<Ending>();
     [SerializeField] private List<GameObject> endingUI = new List<GameObject>();
+    [SerializeField] private List<Ending> entries = new List<Ending>();
+    [SerializeField] private List<GameObject> entryUI = new List<GameObject>();
     [SerializeField] private Equipment equipment;
     [SerializeField] private GameObject currentRoom;
 
@@ -41,6 +43,8 @@ public class clicker : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI Resource;
     [SerializeField] private Transform roomParent;
     [SerializeField] private GameObject endingScreen;
+    [SerializeField] private GameObject leaderboardScreen;
+    [SerializeField] private GameObject settingsScreen;
 
     //Animators
     [SerializeField] private Animator inventoryAnimator;
@@ -249,5 +253,15 @@ public class clicker : MonoBehaviour
     public void endingActive()
     {
         endingScreen.SetActive(!endingScreen.activeInHierarchy);
+    }
+
+    public void leaderboardActive()
+    {
+        leaderboardScreen.SetActive(!leaderboardScreen.activeInHierarchy);
+    }
+
+    public void settingsActive()
+    {
+        settingsScreen.SetActive(!settingsScreen.activeInHierarchy);
     }
 }
