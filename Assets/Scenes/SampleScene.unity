@@ -275,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1737783673108674498, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1737783673108674498, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -283,19 +283,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1737783673108674498, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -400.0008
       objectReference: {fileID: 0}
     - target: {fileID: 1985999370977722127, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3314067646182630448, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4113440108968028553, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
       propertyPath: m_Inertia
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4113440108968028553, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
       propertyPath: m_ScrollSensitivity
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131789359331785881, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131789359331785881, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131789359331785881, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131789359331785881, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131789359331785881, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -399.9998
       objectReference: {fileID: 0}
     - target: {fileID: 5287090503147683359, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
       propertyPath: m_Pivot.x
@@ -405,6 +429,30 @@ PrefabInstance:
       propertyPath: m_ConstraintCount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7814652117860543494, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814652117860543494, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814652117860543494, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814652117860543494, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814652117860543494, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814652117860543494, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -443
+      objectReference: {fileID: 0}
     - target: {fileID: 7927558425610701922, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -412,6 +460,34 @@ PrefabInstance:
     - target: {fileID: 7927558425610701922, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: openUpgrades
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194638276570900672, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194638276570900672, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194638276570900672, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194638276570900672, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194638276570900672, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194638276570900672, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194638276570900672, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2754
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -427,7 +503,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1051565319}
     - targetCorrespondingSourceObject: {fileID: 1500184141925083728, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 1975571460}
   m_SourcePrefab: {fileID: 100100000, guid: 4be3580efb6f8eb48a2c77ed02fb780c, type: 3}
 --- !u!224 &495610790 stripped
@@ -561,19 +637,23 @@ MonoBehaviour:
   endingUI: []
   entries: []
   entryUI: []
+  skins: []
+  skinUI: []
   equipment: {fileID: 1051565315}
   currentRoom: {fileID: 0}
   upgradePrefab: {fileID: 5488501986863867880, guid: 3f75b0cfe404b2746b5eb4325c3c24eb, type: 3}
   roomPrefab: {fileID: 5488501986863867880, guid: 089bbbdaf94d8e949af061b145a394a8, type: 3}
   itemPrefab: {fileID: 5488501986863867880, guid: 21b2591223e33ca4bb4d50700da2328b, type: 3}
   endingPrefab: {fileID: 5488501986863867880, guid: d30abf004d4acea46aa0577010327a03, type: 3}
+  entryPrefab: {fileID: 0}
+  skinPrefab: {fileID: 0}
   upgradeSlot: {fileID: 2142639649}
   endingSlot: {fileID: 1590695207}
   Resource: {fileID: 237543898}
   roomParent: {fileID: 495610790}
   endingScreen: {fileID: 1590695207}
   leaderboardScreen: {fileID: 0}
-  settingsScreen: {fileID: 0}
+  skinScreen: {fileID: 0}
   inventoryAnimator: {fileID: 1051565314}
   upgradesAnimator: {fileID: 214419042}
   roomUI: {fileID: 0}

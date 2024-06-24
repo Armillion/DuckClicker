@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbc46fb7dd46354c89e9f18fcbfbad3, type: 3}
   m_Name: Room
   m_EditorClassIdentifier: 
-  puzzles: []
+  puzzles:
+  - {fileID: 11400000, guid: 3f2fcb9a38fa98c42bcb7789c5005e5c, type: 2}
   items:
   - {fileID: 11400000, guid: 4464821b7ecd06b41a8f8d5d2e76d9ed, type: 2}
   Image: {fileID: 21300000, guid: c936035e9c1e9ee4d91293c825d28101, type: 3}

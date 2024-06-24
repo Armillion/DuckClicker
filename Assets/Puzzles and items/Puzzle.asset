@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Puzzle
   m_EditorClassIdentifier: 
   password: whatever
-  solved: 1
+  solved: 0
   upgrade: {fileID: 11400000, guid: c65d7d3d6b7f0e747849755eb44a4077, type: 2}
-  coords: {x: 0.2, y: 0.6}
+  coords: {x: 0.4, y: 0.4}
   before: {fileID: 21300000, guid: 44e16792414401a488ce6b62e75bea43, type: 3}
   after: {fileID: 21300000, guid: dd12149684bc4304e943bdbce1887295, type: 3}

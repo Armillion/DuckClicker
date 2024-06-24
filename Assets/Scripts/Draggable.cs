@@ -28,9 +28,9 @@ public class Draggable : MonoBehaviour
     {
         //Chceck if collision is with puzzle and act appropiatly
         var puzzle = collider.GetComponent<PuzzleUI>();
-        if (puzzle != null) 
+        if (puzzle != null && transform.parent != parent) 
         {
-            Debug.Log("moc nigas");
+            //Debug.Log("moc nigas");
             if(password == puzzle.puzzle.password)
             {
                 clicker._instance.solvePuzzle(puzzle.puzzle);

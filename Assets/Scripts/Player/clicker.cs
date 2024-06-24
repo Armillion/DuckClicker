@@ -40,7 +40,7 @@ public class clicker : MonoBehaviour
     [SerializeField] private GameObject endingPrefab;
     [SerializeField] private GameObject entryPrefab;
     [SerializeField] private GameObject skinPrefab;
-    //[SerializeField] private GameObject puzzlePrefab;
+    [SerializeField] private GameObject puzzlePrefab;
 
 
     [SerializeField] private GameObject upgradeSlot;
@@ -273,7 +273,11 @@ public class clicker : MonoBehaviour
 
         for (int i = 0; i < upgrade.room.items.Count; i++)
         {
-            //Instantiate(puzzlePrefab, upgrade.room.items[i].coords, Quaternion.identity, room.transform);
+            int current = i;
+            var a = Instantiate(puzzlePrefab, Vector2.zero, Quaternion.identity, room.transform);
+            a.GetComponent<RectTransform>().anchoredPosition = new Vector2(Screen.width * upgrade.room.puzzles[current].coords.x, Screen.height * upgrade.room.puzzles[current].coords.y);
+            var puzel = a.GetComponent<PuzzleUI>();
+            puzel.updateImage();
         }
     }
 

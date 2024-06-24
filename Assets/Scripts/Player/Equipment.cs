@@ -37,6 +37,7 @@ public class Equipment : MonoBehaviour
 
             var a = prefabs[i].GetComponent<ItemslotUI>();
 
+            //Debug.Log(items[i].name);
             if (items[i] != null)
             {
                 a.sprite.sprite = items[i].sprite;
