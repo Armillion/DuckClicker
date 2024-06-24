@@ -50,6 +50,7 @@ public class clicker : MonoBehaviour
     [SerializeField] private GameObject endingScreen;
     [SerializeField] private GameObject leaderboardScreen;
     [SerializeField] private GameObject skinScreen;
+    [SerializeField] private List<GameObject> buildings;
 
     //Animators
     [SerializeField] private Animator inventoryAnimator;
@@ -60,7 +61,7 @@ public class clicker : MonoBehaviour
 
     private void Awake()
     {
-        if(_instance == null)
+        if (_instance == null)
         {
             _instance = this;
         }
@@ -84,25 +85,26 @@ public class clicker : MonoBehaviour
     {
         Resource.text = currentAmount.ToString();
 
-        foreach(Upgrade upgrade in upgrades)
+        foreach (Upgrade upgrade in upgrades)
         {
             toAdd += (int)(upgrade.amount * upgrade.realTiemeBonus);
         }
 
         if (toAdd * Time.deltaTime > 1f)
         {
-            currentAmount += (ulong)(toAdd*Time.deltaTime);
+            currentAmount += (ulong)(toAdd * Time.deltaTime);
             toAdd = 0;
         }
     }
 
-    private void applyUpgrade(Upgrade upgrade)
+    private void applyUpgrade(Upgrade upgrade, int index)
     {
         if (upgrade.unlocked && currentAmount >= (ulong)upgrade.cost)
         {
             upgrade.amount++;
             currentAmount -= (ulong)upgrade.cost;
             upgrade.cost *= 2;
+            ShowBuilding(index);
         }
 
         updateUpgradeUI();
@@ -145,7 +147,7 @@ public class clicker : MonoBehaviour
 
     private void buildUpgradeUI()
     {
-        foreach(Upgrade up in upgrades)
+        foreach (Upgrade up in upgrades)
         {
             var a = Instantiate(upgradePrefab, upgradeSlot.transform);
             upgradeUI.Add(a);
@@ -162,7 +164,7 @@ public class clicker : MonoBehaviour
 
             ui.enterButton.onClick.AddListener(() => enterUpgrade(upgrades[index]));
 
-            ui.applyButton.onClick.AddListener(() => applyUpgrade(upgrades[index]));
+            ui.applyButton.onClick.AddListener(() => applyUpgrade(upgrades[index], index));
         }
     }
 
@@ -174,12 +176,16 @@ public class clicker : MonoBehaviour
             var ui = upgradeUI[index].GetComponent<UpgradeUI>();
 
             ui.sprite.sprite = upgrades[index].Image;
-            
+
             ui.lvl.text = upgrades[index].amount.ToString() + " lvl";
             ui.perS.text = (upgrades[index].realTiemeBonus * upgrades[i].amount).ToString() + " /s";
             ui.cost.text = upgrades[index].cost.ToString();
+            if(upgrades[index].amount > 0)
+            {
+                ShowBuilding(index);
+            }
 
-            upgradeUI[index].SetActive(upgrades[index].unlocked); 
+            upgradeUI[index].SetActive(upgrades[index].unlocked);
         }
     }
 
@@ -200,7 +206,7 @@ public class clicker : MonoBehaviour
 
             ui.name.text = entries[index].name;
             ui.score.text = entries[index].score.ToString();
-           
+
         }
 
     }
@@ -355,5 +361,10 @@ public class clicker : MonoBehaviour
         skinScreen.SetActive(false);
         closeUpgrades();
         closeInventory();
+    }
+
+    public void ShowBuilding(int index)
+    {
+        buildings[index].SetActive(true);
     }
 }
