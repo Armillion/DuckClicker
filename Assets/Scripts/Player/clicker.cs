@@ -27,6 +27,8 @@ public class clicker : MonoBehaviour
     [SerializeField] private List<GameObject> endingUI = new List<GameObject>();
     [SerializeField] private List<Entry> entries = new List<Entry>();
     [SerializeField] private List<GameObject> entryUI = new List<GameObject>();
+    [SerializeField] private List<Skin> skins = new List<Skin>();
+    [SerializeField] private List<GameObject> skinUI = new List<GameObject>();
 
     [SerializeField] private Equipment equipment;
     [SerializeField] private GameObject currentRoom;
@@ -37,6 +39,7 @@ public class clicker : MonoBehaviour
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private GameObject endingPrefab;
     [SerializeField] private GameObject entryPrefab;
+    [SerializeField] private GameObject skinPrefab;
     //[SerializeField] private GameObject puzzlePrefab;
 
 
@@ -46,7 +49,7 @@ public class clicker : MonoBehaviour
     [SerializeField] private Transform roomParent;
     [SerializeField] private GameObject endingScreen;
     [SerializeField] private GameObject leaderboardScreen;
-    [SerializeField] private GameObject settingsScreen;
+    [SerializeField] private GameObject skinScreen;
 
     //Animators
     [SerializeField] private Animator inventoryAnimator;
@@ -69,6 +72,7 @@ public class clicker : MonoBehaviour
         buildUpgradeUI();
         buildEndingUI();
         buildLeaderboardUI();
+        buildSkinUI();
     }
 
     public void click()
@@ -214,8 +218,39 @@ public class clicker : MonoBehaviour
         }
     }
 
+    private void buildSkinUI()
+    {
+        foreach (Skin s in skins)
+        {
+            var a = Instantiate(skinPrefab, leaderboardScreen.transform);
+            skinUI.Add(a);
+        }
 
-        private void enterUpgrade(Upgrade upgrade)
+        updateSkinUI();
+
+        for (int i = 0; i < skins.Count; i++)
+        {
+            int index = i;
+            var ui = skinUI[index].GetComponent<SkinUI>();
+
+            ui.image.sprite = skins[index].image;
+        }
+
+    }
+
+    private void updateSkinUI()
+    {
+        for (int i = 0; i < skins.Count; i++)
+        {
+            int index = i;
+            var ui = skinUI[index].GetComponent<SkinUI>();
+
+            ui.image.sprite = skins[index].image;
+        }
+    }
+
+
+    private void enterUpgrade(Upgrade upgrade)
     {
         upgradesAnimator.SetTrigger("Close");
         var room = Instantiate(roomPrefab, roomParent);
@@ -298,6 +333,11 @@ public class clicker : MonoBehaviour
         leaderboardScreen.SetActive(!leaderboardScreen.activeInHierarchy);
     }
 
+    public void skinActive()
+    {
+        skinScreen.SetActive(!skinScreen.activeInHierarchy);
+    }
+
 
     public void mainMenuButton()
     {
@@ -308,6 +348,7 @@ public class clicker : MonoBehaviour
         currentRoom = null;
         endingScreen.SetActive(false);
         leaderboardScreen.SetActive(false);
+        skinScreen.SetActive(false);
         closeUpgrades();
         closeInventory();
     }

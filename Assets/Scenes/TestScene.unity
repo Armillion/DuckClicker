@@ -312,6 +312,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1c7149904a5a5744fb1f031882373720, type: 2}
   - {fileID: 11400000, guid: ed0a64d0cd94a0243897b40fe9db33e8, type: 2}
   entryUI: []
+  skins:
+  - {fileID: 11400000, guid: d24403c3f92f469438497f53235ac1b9, type: 2}
+  skinUI: []
   equipment: {fileID: 3119581099417410751}
   currentRoom: {fileID: 0}
   upgradePrefab: {fileID: 5488501986863867880, guid: 3f75b0cfe404b2746b5eb4325c3c24eb, type: 3}
@@ -319,13 +322,14 @@ MonoBehaviour:
   itemPrefab: {fileID: 5488501986863867880, guid: 21b2591223e33ca4bb4d50700da2328b, type: 3}
   endingPrefab: {fileID: 5488501986863867880, guid: d30abf004d4acea46aa0577010327a03, type: 3}
   entryPrefab: {fileID: 5488501986863867880, guid: a39beb3caa374574487475b4d97881fd, type: 3}
+  skinPrefab: {fileID: 5488501986863867880, guid: 631177e196e9cdb47a54951b99db285a, type: 3}
   upgradeSlot: {fileID: 7735106383337463255}
   endingSlot: {fileID: 3507862412013227445}
   Resource: {fileID: 2004703685968361588}
   roomParent: {fileID: 382832049321996412}
   endingScreen: {fileID: 3507862412013227445}
   leaderboardScreen: {fileID: 8397771285415005115}
-  settingsScreen: {fileID: 5813268828646483107}
+  skinScreen: {fileID: 635615771}
   inventoryAnimator: {fileID: 9052677201006859901}
   upgradesAnimator: {fileID: 4216944897269006911}
   roomUI: {fileID: 0}
@@ -342,6 +346,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIs: []
+--- !u!1 &635615771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2695469318230289680, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+  m_PrefabInstance: {fileID: 2880927287367893688}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &717563894
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,6 +495,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 519420033}
+    - target: {fileID: 4319093963118378660, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319093963118378660, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319093963118378660, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420033}
+    - target: {fileID: 4319093963118378660, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319093963118378660, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: skinActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319093963118378660, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: clicker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4319093963118378660, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6542331605898345438, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -578,6 +615,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8160441288454042265, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420033}
+    - target: {fileID: 8160441288454042265, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: mainMenuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8160441288454042265, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: clicker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8160441288454042265, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -602,11 +655,6 @@ GameObject:
 --- !u!95 &4216944897269006911 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4705275239283717079, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
-  m_PrefabInstance: {fileID: 2880927287367893688}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5813268828646483107 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5939670605396311978, guid: a4545f6b93f7b6f4f89dd50ec927251d, type: 3}
   m_PrefabInstance: {fileID: 2880927287367893688}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7735106383337463255 stripped
