@@ -210,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e897ef85050a1774eaf0b5928a9d1f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 5818005206909889624}
   isUnlocked: 0
-  flavorText: {fileID: 0}
+  flavorText: {fileID: 1532150286567752122}
   upgrade: {fileID: 0}
 --- !u!1 &8990966180561193240
 GameObject:

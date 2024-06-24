@@ -110,7 +110,7 @@ public class clicker : MonoBehaviour
         for (int i = 0; i < endings.Count; i++)
         {
             int index = i;
-            var ui = upgradeUI[index].GetComponent<EndingUI>();
+            var ui = endingUI[index].GetComponent<EndingUI>();
 
             ui.flavorText.text = endings[index].flavorText;
 
@@ -124,6 +124,8 @@ public class clicker : MonoBehaviour
         {
             int index = i;
             var ui = endingUI[index].GetComponent<EndingUI>();
+
+            if (ui) Debug.Log(index);
 
             ui.image.sprite = endings[index].image;
             ui.flavorText.text = endings[index].flavorText;
