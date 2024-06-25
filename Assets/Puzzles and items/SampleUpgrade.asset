@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SampleUpgrade
   m_EditorClassIdentifier: 
   realTiemeBonus: 1
-  amount: 6
-  cost: 960
+  amount: 0
+  cost: 30
   unlocked: 1
   room: {fileID: 11400000, guid: 414d8bb3a354b2a4a84aa7f17aad01c3, type: 2}
   Image: {fileID: 21300000, guid: dd12149684bc4304e943bdbce1887295, type: 3}

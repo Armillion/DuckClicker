@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a252a2c076a82f4c8ce8d39560cbd23, type: 3}
   m_Name: Item
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: fd6d90327cd261a44a1b2fb2f80e4ba5, type: 3}
-  coords: {x: 0.4, y: 0.4}
+  sprite: {fileID: 21300000, guid: e5f1b72c45830fd439336b87c7295b25, type: 3}
+  coords: {x: 0.2, y: 0.2}
   password: whatever

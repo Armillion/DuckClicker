@@ -77,6 +77,7 @@ public class DraggingController : MonoBehaviour
     private void initDrag()
     {
         isDragging = true;
+        clicker._instance.closeInventory();
     }
 
     private void Drag()

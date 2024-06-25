@@ -30,6 +30,12 @@ public class Equipment : MonoBehaviour
 
     public void updateInventory()
     {
+        if(prefabs.Count < backpackSize)
+        {
+            GameObject a = Instantiate(itemSlotPrefab, invPanel.transform);
+            prefabs.Add(a);
+        }
+
         for(int i = 0; i < backpackSize; i++)
         {
             if (!prefabs[i])

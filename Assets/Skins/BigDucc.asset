@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a7851af7d182dc47a73cba5f9ec97fe, type: 3}
-  m_Name: ExampleSkin
+  m_Name: BigDucc
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 38a1e0a21bf4a334fbf59926f140c620, type: 3}
+  image: {fileID: 21300000, guid: ab04e63913108ca438d5abc8aff8b873, type: 3}

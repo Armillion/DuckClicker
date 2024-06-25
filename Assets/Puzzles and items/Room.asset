@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzles:
   - {fileID: 11400000, guid: 3f2fcb9a38fa98c42bcb7789c5005e5c, type: 2}
-  items: []
+  items:
+  - {fileID: 11400000, guid: 4464821b7ecd06b41a8f8d5d2e76d9ed, type: 2}
   Image: {fileID: 21300000, guid: b0339c170ff71af4ea2c31815bc0145e, type: 3}

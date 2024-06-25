@@ -258,6 +258,9 @@ public class clicker : MonoBehaviour
 
     private void enterUpgrade(Upgrade upgrade)
     {
+        if (upgrade.amount == 0)
+            return;
+
         upgradesAnimator.SetTrigger("Close");
         var room = Instantiate(roomPrefab, roomParent);
         Debug.Log(room);
@@ -277,7 +280,7 @@ public class clicker : MonoBehaviour
             itemek.button.onClick.AddListener(() => pickUpItem(upgrade.room.items[current], upgrade.room, a));
         }
 
-        for (int i = 0; i < upgrade.room.items.Count; i++)
+        for (int i = 0; i < upgrade.room.puzzles.Count; i++)
         {
             int current = i;
             var a = Instantiate(puzzlePrefab, Vector2.zero, Quaternion.identity, room.transform);
@@ -320,9 +323,10 @@ public class clicker : MonoBehaviour
 
     public void pickUpItem(Item item, Room room, GameObject itemek)
     {
-        equipment.items.Add(item);
+        equipment.items[equipment.itemCnt] = item;
+        equipment.itemCnt++;
         room.items.Remove(item);
-        itemek.GetComponent<Button>().onClick.RemoveAllListeners();
+        //itemek.GetComponent<Button>().onClick.RemoveAllListeners();
         Destroy(itemek);
     }
 

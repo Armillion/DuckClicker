@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a7851af7d182dc47a73cba5f9ec97fe, type: 3}
-  m_Name: ExampleSkin
+  m_Script: {fileID: 11500000, guid: cbbc46fb7dd46354c89e9f18fcbfbad3, type: 3}
+  m_Name: Room 2
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 38a1e0a21bf4a334fbf59926f140c620, type: 3}
+  puzzles: []
+  items:
+  - {fileID: 11400000, guid: d2b56992d38bf98469bdc57ff3170655, type: 2}
+  Image: {fileID: 21300000, guid: 3ba079dacff48bc4f8648b834e94b906, type: 3}
