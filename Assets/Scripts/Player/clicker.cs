@@ -8,13 +8,7 @@ using UnityEngine.UI;
 
 public class clicker : MonoBehaviour
 {
-    public class UpgradeButton
-    {
-        public string lvl;
-        public string perS;
-        public Image image;
-        public Button button;
-    }
+    public clickerObject save;
 
     public ulong currentAmount = 0;
 
@@ -70,10 +64,17 @@ public class clicker : MonoBehaviour
             Destroy(this);
         }
 
+        currentAmount = save.current;
+
         buildUpgradeUI();
         buildEndingUI();
         buildLeaderboardUI();
         buildSkinUI();
+    }
+
+    private void OnApplicationQuit()
+    {
+        save.current = currentAmount;
     }
 
     public void click()

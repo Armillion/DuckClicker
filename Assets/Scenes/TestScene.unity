@@ -521,6 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e1d99c9a570e54fb36bd8202b5446c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  save: {fileID: 11400000, guid: ae8b49a2f7e24a345a38915a2ac3b675, type: 2}
   currentAmount: 0
   perClick: 1
   upgrades:
